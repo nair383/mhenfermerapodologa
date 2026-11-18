@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>MH Enfermera & Podóloga - Cuidado Clínico e Integral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen relative overflow-x-hidden">
+
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-40 glass-header border-b border-purple-100/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-3 group min-w-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-pink flex items-center justify-center text-white shadow-sm shrink-0">
+                        <i class="fa-solid fa-user-nurse text-lg"></i>
+                    </div>
+                    <div class="truncate">
+                        <span class="text-base sm:text-xl font-bold block text-brand-dark tracking-tight leading-none truncate">
+                            Enfermera & <span class="text-brand-pink">Podóloga</span>
+                        </span>
+                        <span class="text-[11px] sm:text-xs text-slate-500 font-medium block truncate">Atención Clínica Especializada</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-700">
+                    <a href="index.html" class="text-brand-pink font-bold transition">Inicio</a>
+                    <a href="servicios.html" class="hover:text-brand-pink transition">Servicios Clínicos</a>
+                    <a href="contacto.html" class="hover:text-brand-pink transition">Contacto y Agenda</a>
+                    
+                    <div class="flex items-center gap-3 pl-2 border-l border-purple-100">
+                        <a href="https://www.instagram.com/enfermera_podologa?avpt=ZnJiaGtkdnp3ZmJx" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-xl bg-brand-purpleBg text-brand-violet hover:bg-brand-violet hover:text-white transition flex items-center justify-center text-lg">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/56932397026" target="_blank" rel="noopener noreferrer" class="btn-press bg-brand-pink hover:bg-pink-600 text-white px-5 py-2.5 rounded-xl shadow-md transition flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Agendar Cita</span>
+                        </a>
+                    </div>
+                </nav>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden text-brand-dark p-2.5 focus:outline-none rounded-xl hover:bg-purple-50 transition" aria-label="Menú">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú desplegable móvil optimizado -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/98 backdrop-blur-md border-b border-purple-100 px-4 pt-3 pb-6 space-y-2">
+            <a href="index.html" class="flex items-center gap-3 py-3 px-3 rounded-xl text-base font-semibold text-brand-pink bg-brand-roseBg">
+                <i class="fa-solid fa-house w-5 text-center"></i> Inicio
+            </a>
+            <a href="servicios.html" class="flex items-center gap-3 py-3 px-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-slate-100 transition">
+                <i class="fa-solid fa-user-nurse w-5 text-brand-violet text-center"></i> Servicios Clínicos
+            </a>
+            <a href="contacto.html" class="flex items-center gap-3 py-3 px-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-slate-100 transition">
+                <i class="fa-solid fa-calendar-check w-5 text-brand-violet text-center"></i> Contacto y Agenda
+            </a>
+            <div class="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
+                <a href="https://wa.me/56932397026" target="_blank" rel="noopener noreferrer" class="w-full bg-brand-pink text-white py-3.5 rounded-xl text-center font-bold flex items-center justify-center gap-2 shadow-sm">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Agendar vía WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/enfermera_podologa?avpt=ZnJiaGtkdnp3ZmJx" target="_blank" rel="noopener noreferrer" class="w-full bg-brand-purpleBg text-brand-violet border border-purple-200 py-3 rounded-xl text-center font-bold flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                    <span>Seguir en Instagram</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow z-10 space-y-16 sm:space-y-20 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="gradient-hero text-white relative py-16 sm:py-20 lg:py-28 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left scroll-reveal">
+                        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-brand-pinkLight border border-white/10">
+                            <i class="fa-solid fa-user-nurse"></i> Respaldo Profesional en Enfermería y Podología
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                            Cuidado clínico avanzado y salud integral
+                        </h1>
+                        <p class="text-purple-100 text-sm sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Atención profesional de alta calidad que combina el rigor científico de la enfermería con la especialización podológica para el bienestar y la prevención.
+                        </p>
+                        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+                            <a href="https://wa.me/56932397026?text=Hola,%20quisiera%20consultar%20por%20sus%20servicios%20cl%C3%ADnicos" target="_blank" rel="noopener noreferrer" class="btn-press w-full sm:w-auto bg-brand-pink hover:bg-pink-600 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                               <span>Consultar por WhatsApp</span>
+                            </a>
+                            <a href="servicios.html" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/20 transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                                <span>Ver Servicios</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Card -->
+                    <div class="lg:col-span-5 flex justify-center scroll-reveal">
+                        <div class="w-full max-w-md bg-white/95 text-slate-800 p-6 sm:p-8 rounded-3xl shadow-xl border border-white/20 space-y-5">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-roseBg text-brand-pink flex items-center justify-center text-xl font-bold shrink-0">
+                                    <i class="fa-solid fa-shield-heart"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-base sm:text-lg text-brand-dark leading-snug">Excelencia y Rigor Clínico</h3>
+                                    <p class="text-xs text-slate-500">Enfermería y Podología integrales</p>
+                                </div>
+                            </div>
+                            
+                            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-brand-pink mt-1 shrink-0"></i>
+                                    <span>Educación especializada en pie diabético y amputados.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-brand-pink mt-1 shrink-0"></i>
+                                    <span>Procedimientos de enfermería y curación avanzada.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-brand-pink mt-1 shrink-0"></i>
+                                    <span>Asesoría en casos clínicos y capacitación profesional.</span>
+                                </li>
+                            </ul>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl text-xs text-brand-dark flex items-center justify-between border border-slate-100">
+                                <span>¿Tienes dudas o consultas?</span>
+                                <a href="contacto.html" class="font-bold text-brand-pink hover:underline">Escríbenos &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 scroll-reveal">
+                <span class="text-xs uppercase font-bold tracking-widest text-brand-pink">Pilares de Atención</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark mt-1">Enfoque dual: Enfermería & Podología</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-sm card-hover scroll-reveal">
+                    <div class="w-12 h-12 rounded-xl bg-brand-roseBg text-brand-pink flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-brand-dark mb-2">Visión Científica</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        Procedimientos y valoraciones fundamentados en el juicio clínico de enfermería, asegurando un estándar asistencial riguroso.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-sm card-hover scroll-reveal">
+                    <div class="w-12 h-12 rounded-xl bg-brand-purpleBg text-brand-violet flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-pump-medical"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-brand-dark mb-2">Bioseguridad Estricta</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        Protocolos rigurosos de esterilización y manejo aséptico en cada uno de los procedimientos clínicos y curaciones.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-sm card-hover scroll-reveal">
+                    <div class="w-12 h-12 rounded-xl bg-brand-roseBg text-brand-pink flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-brand-dark mb-2">Asesoría Integral</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        Acompañamiento clínico personalizado en todo el ciclo vital, educación especializada y capacitación para equipos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview -->
+        <section class="bg-slate-100/70 py-14 sm:py-16 border-y border-slate-200/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-12 scroll-reveal">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-widest text-brand-pink">Servicios</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark mt-1">Nuestras Prestaciones Clínicas</h2>
+                    </div>
+                    <a href="servicios.html" class="mt-3 md:mt-0 font-semibold text-brand-violet hover:text-brand-pink flex items-center gap-2 text-sm transition">
+                        <span>Ver catálogo completo</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-xs border border-slate-200/60 flex flex-col justify-between card-hover scroll-reveal">
+                        <div>
+                            <div class="text-brand-pink text-2xl mb-3"><i class="fa-solid fa-heart-pulse"></i></div>
+                            <h3 class="text-base sm:text-lg font-bold text-brand-dark mb-2">Pie Diabético y Amputados</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm mb-4">Educación especializada orientada la prevención de complicaciones y autocuidado.</p>
+                        </div>
+                        <a href="servicios.html" class="text-xs font-bold text-brand-violet hover:text-brand-pink">Más detalles &rarr;</a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-xs border border-slate-200/60 flex flex-col justify-between card-hover scroll-reveal">
+                        <div>
+                            <div class="text-brand-violet text-2xl mb-3"><i class="fa-solid fa-notes-medical"></i></div>
+                            <h3 class="text-base sm:text-lg font-bold text-brand-dark mb-2">Procedimientos & Curación Avanzada</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm mb-4">Manejo especializado de heridas complejas y procedimientos clínicos seguros.</p>
+                        </div>
+                        <a href="servicios.html" class="text-xs font-bold text-brand-violet hover:text-brand-pink">Más detalles &rarr;</a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-xs border border-slate-200/60 flex flex-col justify-between card-hover scroll-reveal">
+                        <div>
+                            <div class="text-brand-pink text-2xl mb-3"><i class="fa-solid fa-people-group"></i></div>
+                            <h3 class="text-base sm:text-lg font-bold text-brand-dark mb-2">Podología & Asesoría Clínica</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm mb-4">Atención en todo el ciclo vital y consultoría experta en casos clínicos.</p>
+                        </div>
+                        <a href="servicios.html" class="text-xs font-bold text-brand-violet hover:text-brand-pink">Más detalles &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-dark rounded-3xl p-6 sm:p-10 lg:p-12 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8 scroll-reveal">
+                <div class="space-y-2 text-center lg:text-left">
+                    <h2 class="text-xl sm:text-3xl font-extrabold leading-snug">¿Necesitas asesoría o servicios profesionales?</h2>
+                    <p class="text-purple-200 text-xs sm:text-base font-light">Escríbenos y conversemos directamente sobre tus requerimientos clínicos.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3.5 w-full lg:w-auto">
+                    <a href="https://wa.me/56932397026?text=Hola,%20deseo%20realizar%20una%20consulta" target="_blank" rel="noopener noreferrer" class="btn-press bg-brand-pink hover:bg-pink-600 text-white font-bold px-6 py-3.5 rounded-xl text-center transition flex items-center justify-center gap-2 text-sm">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Escribir por WhatsApp</span>
+                    </a>
+                    <a href="https://www.instagram.com/enfermera_podologa?avpt=ZnJiaGtkdnp3ZmJx" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl text-center border border-white/20 transition flex items-center justify-center gap-2 text-sm">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white border-t border-purple-900/40 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <span class="text-base sm:text-lg font-bold text-white block mb-2">Enfermera & <span class="text-brand-pink">Podóloga</span></span>
+                    <p class="text-purple-200 text-xs leading-relaxed mb-4">
+                        Atención clínica profesional con enfoque dual en enfermería y podología para el cuidado integral de la salud.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://www.instagram.com/enfermera_podologa?avpt=ZnJiaGtkdnp3ZmJx" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-brand-pink text-white transition flex items-center justify-center">
+                            <i class="fa-brands fa-instagram text-base"></i>
+                        </a>
+                        <a href="https://wa.me/56932397026" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-brand-pink text-white transition flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-brand-pinkLight mb-3">Secciones</h4>
+                    <ul class="space-y-2 text-xs text-purple-200">
+                        <li><a href="index.html" class="hover:text-white transition">Inicio</a></li>
+                        <li><a href="servicios.html" class="hover:text-white transition">Servicios Clínicos</a></li>
+                        <li><a href="contacto.html" class="hover:text-white transition">Contacto y Agenda</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-brand-pinkLight mb-3">Contacto Directo</h4>
+                    <ul class="space-y-2 text-xs text-purple-200">
+                        <li>
+                            <a href="https://wa.me/56932397026" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-brand-pinkLight"></i> +56 9 3239 7026
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/enfermera_podologa?avpt=ZnJiaGtkdnp3ZmJx" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-2">
+                                <i class="fa-brands fa-instagram text-brand-pinkLight"></i> @enfermera_podologa
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2 text-purple-300"><i class="fa-solid fa-shield-halved text-brand-pinkLight"></i> Atención Profesional Digital</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-purple-900/40 text-center text-xs text-purple-300">
+                &copy; MH Enfermera & Podóloga. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

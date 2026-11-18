@@ -1,0 +1,108 @@
+/* ==========================================================================
+   VARIABLES & EFECTOS DE FONDO Y PARTICULAS
+   ========================================================================== */
+
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes ambientGlow {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+.ambient-glow {
+    animation: ambientGlow 8s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   GRADIENTES Y EFECTOS GLASS (CRISTAL)
+   ========================================================================== */
+
+.gradient-hero {
+    background: radial-gradient(circle at 85% 15%, #4A154B 0%, #2E1065 55%, #1A0738 100%);
+}
+
+.glass-header {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* ==========================================================================
+   INTERACCIÓN Y MOVIMIENTO AL SCROLL (SCROLL-REVEAL)
+   ========================================================================== */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px) scale(0.99);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ==========================================================================
+   MICROINTERACCIONES Y MEJORAS RESPONSIVE MÓVIL
+   ========================================================================== */
+
+.card-hover {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .card-hover:hover {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: 0 16px 24px -8px rgba(74, 21, 75, 0.1),
+                    0 6px 8px -4px rgba(219, 39, 119, 0.04);
+        border-color: rgba(219, 39, 119, 0.3);
+    }
+}
+
+.btn-press {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.2s ease,
+                background-color 0.2s ease;
+}
+
+.btn-press:active {
+    transform: scale(0.97);
+}
+
+#mobile-menu {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+input, select, textarea {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none; /* Previene estilos por defecto en Safari iOS */
+}
+
+input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.15);
+}
